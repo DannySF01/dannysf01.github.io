@@ -1,32 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import Links from './components/Links'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const handleClickScroll = (id : string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({behavior: 'smooth'});
+    }
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='bg-gradient-to-b from-brand-900 to-brand-500 text-white flex flex-col'>
+      <div className='fixed w-full py-10 px-10 flex justify-between'>
+        <div>
+          <button className='mr-5' onClick={() =>handleClickScroll("me")}>
+            Me
+          </button>
+          <button className='mr-5' onClick={() =>handleClickScroll("about")}>
+            About
+          </button>
+          <button className='mr-5' onClick={() =>handleClickScroll("projects")}>
+            Projects
+          </button>
+        </div>
+        <div>
+          <Links/>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <section id='me' className="p-10 h-screen flex items-center">
+        <div className='flex-col items-center w-full'>
+          <div className="flex justify-center text-xl mb-10 tracking-[.50em]">
+            <div>Daniel Fernandes </div>
+          </div>
+          <div className="text-center">
+            <div className="grid gap-12 items-center">
+              <div className="mt-12 text-m">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><section id='about' className="p-10 h-screen flex items-center">
+        <div className='flex-col items-center w-full'>
+          <div className="flex justify-center text-xl mb-10 tracking-[.50em]">
+            <div>About</div>
+          </div>
+          <div className="text-center">
+            <div className="grid gap-12 items-center">
+              <div className="mt-12 text-m">
+                Daniel Fernandes • 21yo • Web Developer • JavaScript • React
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><section id='projects' className="p-10 h-screen flex items-center">
+        <div className='flex-col items-center w-full'>
+          <div className="flex justify-center text-xl mb-10 tracking-[.50em]">
+            <div>Projects</div>
+          </div>
+          <div className="text-center">
+            <div className="grid gap-12 items-center">
+              <div className="mt-12 text-m">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
