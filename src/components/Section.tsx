@@ -1,19 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Section extends Component {
-  render() {
-    return (
-      <section className="p-10 text-white h-screen">
-        <div className="flex justify-between">
-          <div>Projects</div>
-          <div>see more</div>
-        </div>
-        <div className="text-center ">
-          <div className="grid gap-12 items-center">
-            <div className="mt-12 text-s"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+interface SectionProps {
+  id?: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+export default function Section({
+  id,
+  children,
+  className = "",
+}: SectionProps) {
+  return (
+    <section
+      id={id}
+      className={`py-20 min-h-screen flex items-center justify-center snap-start w-full bg-transparent ${className}`}
+    >
+      <div className="w-full max-w-6xl px-6 md:px-12 lg:px-24">{children}</div>
+    </section>
+  );
 }
