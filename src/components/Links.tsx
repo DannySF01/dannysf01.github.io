@@ -5,29 +5,31 @@ const Links = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
+    const isDarkTheme =
+      document.documentElement.classList.contains("dark") ||
+      localStorage.getItem("theme") === "dark";
+    setIsDark(isDarkTheme);
   }, []);
 
-  const handleClickScroll = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const toggleTheme = () => {
+    const newDark = !isDark;
+    setIsDark(newDark);
+    document.documentElement.classList.toggle("dark", newDark);
+    localStorage.setItem("theme", newDark ? "dark" : "light");
   };
 
-  const toggleTheme = () => {
-    document.documentElement.classList.toggle("dark");
-    setIsDark(!isDark);
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
-      <div className="flex items-center justify-between px-6 py-3 rounded-full border border-white/10 bg-white/70 dark:bg-black/50 backdrop-blur-md shadow-lg transition-all">
+      <div className="flex items-center justify-between px-6 py-2 glass-card rounded-full p-3">
         <a
           href="https://github.com/DannySF01"
           target="_blank"
           rel="noreferrer"
-          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+          className="p-2.5 rounded-full hover:bg-accent/10 text-ink transition-all"
         >
           <svg
             aria-hidden="true"
@@ -40,23 +42,27 @@ const Links = () => {
           </svg>
         </a>
 
-        <div className="hidden md:flex gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-8 text-sm font-medium">
           {["home", "projects", "skills", "experience"].map((item) => (
             <button
               key={item}
-              onClick={() => handleClickScroll(item)}
-              className="capitalize hover:text-blue-500 transition-colors"
+              onClick={() => scrollTo(item)}
+              className="capitalize text-ink/70 hover:text-accent transition-colors relative group"
             >
               {item}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
             </button>
           ))}
         </div>
 
+        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors"
+          className="p-2.5 rounded-full bg-accent/5 text-accent hover:bg-accent/20 transition-all active:scale-90"
+          aria-label="Toggle Theme"
         >
-          {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          {isDark ? <Moon size={20} /> : <Sun size={20} />}
         </button>
       </div>
     </nav>

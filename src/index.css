@@ -1,37 +1,85 @@
 @import "tailwindcss";
 
 @theme {
-  /* Definição das Keyframes */
+  --font-saira: "Saira", ui-sans-serif, system-ui;
+
+  --color-canvas: oklch(0.98 0.005 250);
+  --color-ink: oklch(0.25 0.01 250);
+
+  --color-card: rgba(255, 255, 255, 0.7);
+  --color-card-border: oklch(0.92 0.01 250);
+
+  --color-border-subtle: oklch(0.92 0.01 250);
+
+  --color-accent: oklch(0.6 0.18 250);
+  --color-accent-muted: oklch(0.95 0.02 250);
+
   @keyframes mesh-float {
-    0% {
-      transform: translate(0, 0) scale(1) rotate(0deg);
-    }
-    33% {
-      transform: translate(15%, -10%) scale(1.2) rotate(10deg);
-    }
-    66% {
-      transform: translate(-10%, 20%) scale(0.9) rotate(-10deg);
-    }
+    0%,
     100% {
       transform: translate(0, 0) scale(1) rotate(0deg);
     }
+    33% {
+      transform: translate(5%, -10%) scale(1.05) rotate(2deg);
+    }
+    66% {
+      transform: translate(-8%, 5%) scale(0.95) rotate(-2deg);
+    }
   }
 
-  --animate-mesh-1: mesh-float 10s ease-in-out infinite;
-  --animate-mesh-2: mesh-float 15s ease-in-out infinite reverse;
-  --animate-mesh-3: mesh-float 12s ease-in-out infinite;
-
-  --font-saira: "Saira", sans-serif;
+  --animate-mesh-1: mesh-float 15s ease-in-out infinite;
+  --animate-mesh-2: mesh-float 18s ease-in-out infinite reverse;
+  --animate-mesh-3: mesh-float 22s ease-in-out infinite;
 }
 
-:root {
-  font-family: var(--font-saira);
-  font-size: 1.125rem; /* text-lg */
-  color: #374151; /* text-gray-700 */
-  background-color: #fafafa; /* bg-zinc-50 */
+@layer theme {
+  .dark {
+    --color-canvas: oklch(0.12 0.01 250);
+    --color-ink: oklch(0.95 0.01 250);
+
+    --color-card: rgba(255, 255, 255, 0.03);
+    --color-card-border: rgba(255, 255, 255, 0.1);
+
+    --color-border-subtle: rgba(255, 255, 255, 0.1);
+
+    --color-accent: oklch(0.7 0.12 250);
+    --color-accent-muted: rgba(59, 130, 246, 0.15);
+  }
 }
 
-.dark :root {
-  background-color: #050505;
-  color: #f3f4f6;
+@layer base {
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-saira);
+    @apply antialiased transition-colors duration-500 selection:bg-accent/20;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-card-border);
+    backdrop-filter: blur(12px);
+    @apply rounded-3xl p-8 shadow-sm transition-all duration-300;
+    @apply hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .orb {
+    @apply absolute rounded-full pointer-events-none transition-all duration-1000;
+    filter: blur(160px);
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+  }
+
+  .dark .orb {
+    opacity: 0.08;
+    mix-blend-mode: plus-lighter;
+  }
+
+  .badge {
+    background-color: var(--color-accent-muted);
+    color: var(--color-accent);
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+  }
 }
