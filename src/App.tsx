@@ -3,7 +3,8 @@ import Links from "./components/Links";
 // Images
 import wordle_image from "./assets/wordle/wordle.png";
 import weather_image from "./assets/weather/weather-desktop.png";
-import stepup_image from "./assets/stepup.png";
+import stepup_image from "./assets/stepup/stepup.png";
+import todo_image from "./assets/todoapp/todoapp.png";
 import picture from "./assets/me.png";
 import Card from "./components/Card";
 import Section from "./components/Section";
@@ -121,6 +122,15 @@ function App() {
                   demo_url="https://dannysf01.github.io/wordle-clone/"
                   github_url="https://github.com/DannySF01/wordle-clone"
                   tags={["HTML", "CSS", "JavaScript"]}
+                />
+
+                <Card
+                  image={todo_image}
+                  title="To-do-App"
+                  description="A simple to-do app that allows users to create, edit, and delete tasks."
+                  demo_url="https://to-do-app-phi-sandy.vercel.app"
+                  github_url="https://github.com/DannySF01/to-do-app"
+                  tags={["React", "Tailwind", "TypeScript"]}
                 />
               </div>
             </div>
