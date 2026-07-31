@@ -1,11 +1,15 @@
 import Links from "./components/Links";
 
 // Images
+
+import picture from "./assets/me.png";
+
 import wordle_image from "./assets/wordle/wordle.png";
 import weather_image from "./assets/weather/weather-desktop.png";
 import stepup_image from "./assets/stepup/stepup.png";
 import todo_image from "./assets/todoapp/todoapp.png";
-import picture from "./assets/me.png";
+import scrap_general_image from "./assets/scrap-general/scrap_general.png";
+
 import Card from "./components/Card";
 import Section from "./components/Section";
 
@@ -131,6 +135,21 @@ function App() {
                   demo_url="https://to-do-app-phi-sandy.vercel.app"
                   github_url="https://github.com/DannySF01/to-do-app"
                   tags={["React", "Tailwind", "TypeScript"]}
+                />
+
+                <Card
+                  image={scrap_general_image}
+                  title="Scrap General"
+                  description="Scrap General is a high-performance, real-time tactical base-defense web game. This game combines top-down continuous mechanical combat with layered incremental progression systems."
+                  demo_url="https://scrap-general.vercel.app"
+                  github_url="https://github.com/DannySF01/scrap-general"
+                  tags={[
+                    "React",
+                    "Tailwind",
+                    "TypeScript",
+                    "Zustand",
+                    "Framer Motion",
+                  ]}
                 />
               </div>
             </div>
