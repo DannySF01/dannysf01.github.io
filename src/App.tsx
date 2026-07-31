@@ -109,7 +109,7 @@ function App() {
                 <Card
                   image={weather_image}
                   title="Weather App"
-                  description="Real-time forecasting app using modern APIs to display global weather conditions."
+                  description="Real-time forecasting app using modern API's to display global weather conditions."
                   demo_url="https://weather-app-three-coral-81.vercel.app"
                   github_url="https://github.com/DannySF01/weather-app"
                   tags={["Next.js", "TypeScript", "Tailwind"]}
