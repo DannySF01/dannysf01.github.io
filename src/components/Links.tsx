@@ -44,7 +44,14 @@ const Links = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 text-sm font-medium">
-          {["home", "projects", "skills", "experience"].map((item) => (
+          {[
+            "home",
+            "projects",
+            "skills",
+            "experience",
+            "education",
+            "contact",
+          ].map((item) => (
             <button
               key={item}
               onClick={() => scrollTo(item)}

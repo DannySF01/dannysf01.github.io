@@ -37,6 +37,7 @@ function App() {
 
       <div className="relative z-10">
         <Links />
+
         <Section id="home">
           <div className="flex flex-col items-center w-full text-center px-6">
             <div className="flex justify-center mb-10">
@@ -61,16 +62,12 @@ function App() {
             </h1>
 
             <h2 className="text-xl md:text-2xl font-medium text-ink/60 mb-6 tracking-tight">
-              Full Stack Web Developer
+              Frontend Developer
             </h2>
 
             <p className="text-lg md:text-xl text-ink/80 max-w-2xl mx-auto leading-relaxed font-normal">
-              I'm a Web Developer with a{" "}
-              <span className="text-accent font-semibold italic">
-                CTeSP in Web Development
-              </span>{" "}
-              from ESTG - Politécnico do Porto. I specialize in building modern,
-              responsive applications.
+              I'm a Web Developer focused on building modern, responsive and
+              user-friendly web applications.
             </p>
 
             <div className="mt-12">
@@ -83,7 +80,7 @@ function App() {
                 className="group relative px-8 py-4 bg-ink text-canvas rounded-full font-bold transition-all hover:scale-105 active:scale-95 shadow-xl hover:shadow-accent/20"
               >
                 <span className="relative z-10">View My Work</span>
-                {/* Efeito de brilho interno no hover */}
+                {/* Hover glow effect */}
                 <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
             </div>
@@ -104,12 +101,25 @@ function App() {
                 <Card
                   image={stepup_image}
                   title="StepUp"
-                  description="A modern footwear e-commerce application demonstrating clean, scalable web architecture."
+                  description="Full-stack footwear e-commerce built with Next.js and Supabase, featuring product browsing, filtering, authentication and a responsive shopping experience."
                   demo_url="https://stepup-coral.vercel.app"
                   github_url="https://github.com/DannySF01/stepup"
                   tags={["Next.js", "Tailwind", "TypeScript"]}
                 />
-
+                <Card
+                  image={scrap_general_image}
+                  title="Scrap General"
+                  description="Scrap General is a high-performance, real-time tactical base-defense web game. This game combines top-down continuous mechanical combat with layered incremental progression systems."
+                  demo_url="https://scrap-general.vercel.app"
+                  github_url="https://github.com/DannySF01/scrap-general"
+                  tags={[
+                    "React",
+                    "Tailwind",
+                    "TypeScript",
+                    "Zustand",
+                    "Framer Motion",
+                  ]}
+                />
                 <Card
                   image={weather_image}
                   title="Weather App"
@@ -131,25 +141,10 @@ function App() {
                 <Card
                   image={todo_image}
                   title="To-do-App"
-                  description="A simple to-do app that allows users to create, edit, and delete tasks."
+                  description="A simple task management application that allows users to create, edit, and delete tasks."
                   demo_url="https://to-do-app-phi-sandy.vercel.app"
                   github_url="https://github.com/DannySF01/to-do-app"
                   tags={["React", "Tailwind", "TypeScript"]}
-                />
-
-                <Card
-                  image={scrap_general_image}
-                  title="Scrap General"
-                  description="Scrap General is a high-performance, real-time tactical base-defense web game. This game combines top-down continuous mechanical combat with layered incremental progression systems."
-                  demo_url="https://scrap-general.vercel.app"
-                  github_url="https://github.com/DannySF01/scrap-general"
-                  tags={[
-                    "React",
-                    "Tailwind",
-                    "TypeScript",
-                    "Zustand",
-                    "Framer Motion",
-                  ]}
                 />
               </div>
             </div>
@@ -218,15 +213,21 @@ function App() {
                   <span className="text-ink/50">Porto, Portugal</span>
                 </p>
 
-                <div className="glass-card p-6">
-                  <p className="text-ink/70 leading-relaxed">
-                    Collaborated on front-end and back-end development for web
-                    and mobile platforms using
-                    <span className="text-ink font-semibold italic">
-                      {" "}
-                      HTML, CSS, and JavaScript.
-                    </span>
-                  </p>
+                <div className="glass-card">
+                  <ul className="text-ink/70 leading-relaxed list-disc px-3">
+                    <li>
+                      Developed responsive interfaces using HTML, CSS and
+                      JavaScript.
+                    </li>
+                    <li>
+                      Implemented and maintained frontend features for web and
+                      mobile platforms.
+                    </li>
+                    <li>
+                      Collaborated with developers to troubleshoot and improve
+                      existing functionality.
+                    </li>
+                  </ul>
                 </div>
               </div>
 
@@ -248,11 +249,20 @@ function App() {
                 </p>
 
                 <div className="glass-card p-6 border-dashed opacity-80">
-                  <p className="text-ink/70 leading-relaxed">
-                    Managed data entry and information systems, developing
-                    organizational workflows that now enhance my structured
-                    approach to web development.
-                  </p>
+                  <ul className="text-ink/70 leading-relaxed list-disc px-6">
+                    <li>Managed data entry and information systems.</li>
+                    <li>
+                      Developed efficient organizational workflows and
+                      processes.
+                    </li>
+                    <li>
+                      Organized and maintained records and digital information.
+                    </li>
+                    <li>
+                      Strengthened attention to detail, organization, and
+                      problem-solving skills.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -274,7 +284,8 @@ function App() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-4">
                       <span className="px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest border border-accent/20">
-                        Level 5 Certification
+                        LEVEL 5 CERTIFICATION • HIGHER PROFESSIONAL TECHNICAL
+                        COURSE
                       </span>
                     </div>
 
@@ -299,12 +310,12 @@ function App() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-4">
                       <span className="px-3 py-1 rounded-full bg-ink/5 text-ink/60 text-xs font-bold uppercase tracking-widest border border-border-subtle">
-                        Level 4 Certification
+                        Level 4 Certification • Professional Course
                       </span>
                     </div>
 
                     <h4 className="text-2xl font-bold text-ink mb-1 group-hover:text-ink/70 transition-colors">
-                      Management and Programming of IT Systems
+                      Computer Systems Management and Programming Technician
                     </h4>
                     <p className="text-lg text-ink/70 font-medium">
                       Escola Secundária de Castelo de Paiva

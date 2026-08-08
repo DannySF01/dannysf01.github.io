@@ -52,7 +52,7 @@ export default function Card({
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-3 mt-auto">
           <a
             target="_blank"
             href={demo_url}
@@ -65,7 +65,7 @@ export default function Card({
             href={github_url}
             className="flex items-center justify-center gap-2 py-2.5 px-4 bg-canvas border border-border-subtle text-ink/70 text-[11px] font-bold rounded-xl transition-all hover:bg-surface-raised hover:text-ink active:scale-95"
           >
-            SOURCE <Code2 size={14} />
+            GITHUB <Code2 size={14} />
           </a>
         </div>
       </div>
