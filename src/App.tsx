@@ -141,10 +141,10 @@ function App() {
                 <Card
                   image={todo_image}
                   title="To-do-App"
-                  description="A simple task management application that allows users to create, edit, and delete tasks."
+                  description="A modern and responsive task management web application designed to keep everyday tasks organized through a clean, intuitive, and fluid user experience."
                   demo_url="https://to-do-app-phi-sandy.vercel.app"
                   github_url="https://github.com/DannySF01/to-do-app"
-                  tags={["React", "Tailwind", "TypeScript"]}
+                  tags={["React", "Tailwind", "TypeScript", "Motion"]}
                 />
               </div>
             </div>
